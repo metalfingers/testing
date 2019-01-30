@@ -33,18 +33,18 @@ class App extends Component {
           <Route exact path="/" component={FeedList} />
           <Route
             path="/feed"
-            render={props => (
-              <FeedList
-                {...props}
-                authUser={this.state}
-              />
-            )}
+            render={props => <FeedList {...props} authUser={this.state} />}
           />
-          <ProtectedRoute
+          <Route
+            path="/favorites"
+            render={props => <Favorites {...props} authUser={this.state} />}
+          />
+          {/* <ProtectedRoute
             path="/favorites"
             component={Favorites}
             authUser={this.state.authUser}
-          />
+            firebase={this.state.firebase}
+          /> */}
           <Route path="/signup" component={Signup} />
           <Route path="/signin" component={Signin} />
           <Route path="/signout" component={SignOutButton} />

@@ -50,7 +50,7 @@ class FeedItemBase extends Component {
           </span>
           <span>
             <i className="far fa-clock" />
-            {moment(this.props.created_utc).fromNow()} &bull;
+            {moment(this.props.created_utc*1000).fromNow()} &bull;
           </span>
           <span>
             <i className="fas fa-bolt" />
