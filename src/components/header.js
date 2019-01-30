@@ -18,7 +18,7 @@ const NavigationAuth = ({authUser}) => (
     </li>
     <li>
       <Link to="/favorites">
-        <i className="fas fa-heart" /> favorites (0)
+        <i className="fas fa-heart" /> favorites
       </Link>
     </li>
     <li>

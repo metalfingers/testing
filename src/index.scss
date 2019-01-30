@@ -83,7 +83,8 @@ $white: #fff;
 
   &-item-image-wrapper {
     position: relative;
-    .fa-heart {
+    .fa-heart,
+    .fa-trash-alt {
       color: $white;
       padding: 20px;
       position: absolute;
@@ -91,7 +92,8 @@ $white: #fff;
     }
     
     &:hover {
-      .fa-heart {
+      .fa-heart,
+      .fa-trash-alt {
         visibility: visible;
       }
     }

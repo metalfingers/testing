@@ -28,14 +28,30 @@ class FeedItemBase extends Component {
     event.preventDefault()
   }
 
+  onRemoveFavorite = event => {
+    const userEmail = this.props.firebase.auth.currentUser.email
+      .replace("@", "_")
+      .replace(".", "_")
+    this.props.firebase.database
+      .ref(`users/${userEmail}/${this.props.id}`)
+      .remove()
+      .catch(error => {
+        this.setState({ error })
+      })
+
+    event.preventDefault()
+  }
+
   render() {
     return (
       <div className="feed-item">
         <div className="feed-item-image-wrapper">
-          <i
-            className={`fas fa-heart fave-${this.props.isFavorite}`}
-            onClick={this.onSaveFavorite}
-          />
+          {this.props.isFavorite ? (
+            <i className="far fa-trash-alt" onClick={this.onRemoveFavorite} />
+          ) : (
+            <i className={`fas fa-heart`} onClick={this.onSaveFavorite} />
+          )}
+
           <img
             src={this.props.url}
             alt={this.props.title}
@@ -50,7 +66,7 @@ class FeedItemBase extends Component {
           </span>
           <span>
             <i className="far fa-clock" />
-            {moment(this.props.created_utc*1000).fromNow()} &bull;
+            {moment(this.props.created_utc * 1000).fromNow()} &bull;
           </span>
           <span>
             <i className="fas fa-bolt" />
