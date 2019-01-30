@@ -11,13 +11,12 @@ const SignUpPage = () => (
 )
 
 const INITIAL_STATE = {
-  username: "",
   email: "",
   passwordOne: "",
   passwordTwo: "",
   error: null
 }
- 
+
 class SignUpFormBase extends Component {
   state = { ...INITIAL_STATE }
 
@@ -42,55 +41,60 @@ class SignUpFormBase extends Component {
   }
 
   render() {
-    const { username, email, passwordOne, passwordTwo, error } = this.state
+    const { email, passwordOne, passwordTwo, error } = this.state
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === "" ||
-      email === "" ||
-      username === ""
+      email === ""
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign Up
-        </button>
+      <form onSubmit={this.onSubmit} className="body-wrap">
+        <div class="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+        </div>
+        <div class="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            name="passwordOne"
+            value={passwordOne}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group">
+          <label htmlFor="passwordTwo">Confirm password</label>
+          <input
+            name="passwordTwo"
+            value={passwordTwo}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <div class="form-group">
+          <button disabled={isInvalid} type="submit">
+            Sign Up
+          </button>
+        </div>
 
-        {error && <p>{error.message}</p>}
+        <div class="form-group">
+          {error && <p>{error.message}</p>}
+        </div>
       </form>
     )
   }
 }
 
 const SignUpLink = () => (
-  <p>
+  <p className="body-wrap">
     Don't have an account? <Link to="/signup">Sign Up</Link>
   </p>
 )

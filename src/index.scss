@@ -39,6 +39,10 @@ $white: #fff;
   margin: 0 auto;
   max-width: 500px;
   width: 100%;
+
+  + .body-wrap {
+    padding-top: 40px;
+  }
 }
 
 .header {
@@ -127,5 +131,19 @@ $white: #fff;
     i {
       margin-right: 4px;
     }
+  }
+}
+
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100px;
+
+  &:first-child {
+    padding-top: 40px;
+  }
+
+  input {
+    margin-top: 5px;
   }
 }

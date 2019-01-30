@@ -6,8 +6,8 @@ import { SignUpLink } from "./signup"
 import { withFirebase } from "../firebase"
 
 const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
+  <div className="body-wrap">
+
     <SignInForm />
     <SignUpLink />
   </div>
@@ -83,6 +83,4 @@ const SignInForm = compose(
   withFirebase
 )(SignInFormBase)
 
-export default SignInPage
-
-export { SignInForm }
+export { SignInForm, SignInPage }

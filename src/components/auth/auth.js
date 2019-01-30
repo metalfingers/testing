@@ -1,7 +1,7 @@
 import React from "react"
 import { Redirect, Route } from "react-router-dom"
 import { SignUpPage as Signup } from "./signup"
-import { SignInForm as Signin } from "./signin"
+import { SignInPage as Signin } from "./signin"
 import SignOutButton from "./signout"
 
 const ProtectedRoute = ({ authUser, component: Component, ...rest }) => (
