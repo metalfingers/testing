@@ -48,20 +48,24 @@ class FavoritesBase extends Component {
     return this.props.firebase.auth.currentUser ? (
       <Layout>
         <div className="feed-list">
-          {this.state.feedItems.map((faveItem) => {
+          {this.state.feedItems.length > 0 ?
+          (this.state.feedItems.map(faveItem => {
             console.log(this.state.feedItems)
             return (
-            <FeedItem
-              key={faveItem.id}
-              id={faveItem.id}
-              title={faveItem.title}
-              url={faveItem.url}
-              author={faveItem.author}
-              created_utc={faveItem.created_utc}
-              score={faveItem.score}
-              isFavorite="true"
-            />
-          )})}
+              <FeedItem
+                key={faveItem.id}
+                id={faveItem.id}
+                title={faveItem.title}
+                url={faveItem.url}
+                author={faveItem.author}
+                created_utc={faveItem.created_utc}
+                score={faveItem.score}
+                isFavorite="true"
+              />
+            )
+          })) : (
+            <div class="faves-empty">No favorites yet.</div>
+          )}
         </div>
       </Layout>
     ) : (

@@ -28,6 +28,7 @@ $blue:  #57a2e4;
 $gray: #999;
 $black: #000;
 $white: #fff;
+$yellow: #fff3cd;
 
 
 .app {
@@ -134,6 +135,11 @@ $white: #fff;
   }
 }
 
+.faves-empty {
+  background-color: $yellow;
+  padding: 30px;
+  text-align: center;
+}
 
 .form-group {
   margin-bottom: 20px;
