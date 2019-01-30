@@ -1,0 +1,129 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+$font-stack: Helvetica, sans-serif;
+$blue:  #57a2e4;
+$gray: #999;
+$black: #000;
+$white: #fff;
+
+
+.app {
+  width: 100%;
+}
+
+.body-wrap {
+  font-family: $font-stack;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+}
+
+.header {
+  background-color: $white;
+  border-bottom: 1px solid lighten( $gray, 25% );
+  font-size: 16px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+
+  + .body-wrap {
+    padding-top: 80px;
+  }
+}
+
+.nav-options {
+  li {
+    float: left;
+    padding: 10px;
+
+    &:first-child {
+      background-color: $blue;
+
+      a {
+        color: $white;
+      }
+    }
+
+    a {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+.feed {
+  &-item {
+    box-shadow: 0px 2px 6px lighten( $gray, 25% );
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  &-item-image-wrapper {
+    position: relative;
+    .fa-heart {
+      color: $white;
+      padding: 20px;
+      position: absolute;
+      visibility: hidden;
+    }
+    
+    &:hover {
+      .fa-heart {
+        visibility: visible;
+      }
+    }
+
+    .fave-true {
+      right: 10px;
+    }
+
+  }
+  &-item-image {
+    height: 350px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &-item-title {
+    font-family: 'Arvo', serif;
+    padding: 30px;
+  }
+
+  &-item-meta {
+    border-top: 1px solid lighten( $gray, 25% );
+    color: $gray;
+    font-size: 12px;
+    padding: 20px;
+
+    span {
+      margin-right: 6px;
+    }
+
+    i {
+      margin-right: 4px;
+    }
+  }
+}
